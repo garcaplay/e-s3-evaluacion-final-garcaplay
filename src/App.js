@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.getCharacters();
+    this.getSavedCharacters()
   }
 
   getCharacters(){
@@ -24,8 +24,25 @@ class App extends Component {
         this.setState({
           characters: newCharacters
         })
+        this.saveCharacters(newCharacters, 'savedCharacters')
       })
   }
+
+  saveCharacters(data, dataName){
+    localStorage.setItem(dataName, JSON.stringify(data));
+  }
+
+  getSavedCharacters(){
+    if(localStorage.getItem('savedCharacters') !==null){
+      const mySavedCharacters = JSON.parse(localStorage.getItem('savedCharacters'));
+      this.setState({
+        characters: mySavedCharacters
+      })
+    } else{
+      this.getCharacters()
+    }
+  }
+
   render() {
 
     return (
