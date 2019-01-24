@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      characters : ''
+      characters : []
     }
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   render() {
-
+  
     return (
       <div className="app">
         <div className="hp__page">
@@ -57,13 +57,29 @@ class App extends Component {
           </div>
           <div className="hp__container">
             <ul className="hp__list">
-              <li className="hp__list-item">
-                <div className="hp__list-card">
-                  <img src="" alt="" className="list-card__image"></img>
-                  <h2 className="list-card__name"></h2>
-                  <p className="list-card__house"></p>
-                </div>
-              </li>
+
+              {this.state.characters.map(item =>{ 
+                if(item.house !== ""){
+                  return(
+                  <li className="hp__list-item" key={item.id} id={item.id}>
+                  <div className="hp__list-card">
+                    <img src={item.image} alt={item.name} className="list-card__image"></img>
+                    <h2 className="list-card__name">{item.name}</h2>
+                    <p className="list-card__house">{item.house}</p>
+                  </div>
+                </li>)  
+                } else{
+                  return (
+                  <li className="hp__list-item" key={item.id} id={item.id}>
+                    <div className="hp__list-card">
+                      <img src={item.image} alt={item.name} className="list-card__image"></img>
+                      <h2 className="list-card__name">{item.name}</h2>
+                      <p className="list-card__house">Do not belong to any house</p>
+                    </div>
+                  </li>)
+                } 
+              })}
+              
             </ul>
           </div>
         </main>
