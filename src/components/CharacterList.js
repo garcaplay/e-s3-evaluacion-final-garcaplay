@@ -1,13 +1,15 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import CharacterCard from './CharacterCard';
+import ErrorPage from './ErrorPage';
 
 class CharacterList extends Component {
 
   filterExist(){
     const {filteredList} = this.props;
     if(filteredList.length < 1){
-      return "No hay datos"
+      return (
+        <ErrorPage/>)
     } else{
       return(
         filteredList.map(item =>{ 

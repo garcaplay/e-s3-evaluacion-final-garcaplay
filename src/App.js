@@ -4,6 +4,7 @@ import './App.scss';
 import CharacterList from './components/CharacterList';
 import Filter from './components/Filters';
 import DetailCard from './components/DetailCard';
+import {getCharacters} from './services/CharacterService';
 
 class App extends Component {
   constructor(props){
@@ -23,9 +24,7 @@ class App extends Component {
   }
 
   getCharacters(){
-    const ENDPOINT = 'https://hp-api.herokuapp.com/api/characters';
-    fetch(ENDPOINT)
-      .then(res=>res.json())
+      getCharacters()
       .then(data =>{
         const newCharacters = data.map((item, index) =>{
           return {...item, id: index}
