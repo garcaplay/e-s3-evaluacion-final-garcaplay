@@ -24,12 +24,14 @@ class DetailCard extends Component {
       return "No hay datos"
     }else{
       return(<div className="hp__detail-card">
-      <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name}></img>
-      <h2 className="hp__detail-name">Name: {characters[selectedCharacter].name}</h2>
-      <p className="hp__detail-house">House: {characters[selectedCharacter].house}</p>
-      <p className="hp__detail-born">Born: {characters[selectedCharacter].yearOfBirth}</p>
-      <p className="hp__detail-patronus">Patronus: {characters[selectedCharacter].patronus}</p>
-      <p className="hp__detail-status">State: {this.isCharacterAlive()}</p>
+      <div className="detail__card-imagebox">
+        <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name} className="detail__card-image"></img>
+      </div>
+      <h2 className="detail__card-name">Name: {characters[selectedCharacter].name}</h2>
+      <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+      <p className="detail__card-born">Born: {characters[selectedCharacter].yearOfBirth}</p>
+      <p className="detail__card-patronus">Patronus: {characters[selectedCharacter].patronus}</p>
+      <p className="detail__card-status">State: {this.isCharacterAlive()}</p>
     </div>)
     }
   }
@@ -39,7 +41,7 @@ class DetailCard extends Component {
       
       <div className="hp__detail">
         {this.isCharacterSelected()}
-        <div className="hp-detail-btn">
+        <div className="hp-detail-link">
           <Link to="/">Go back</Link>
         </div>
       </div>

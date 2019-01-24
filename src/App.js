@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {Switch, Route} from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import CharacterList from './components/CharacterList';
 import Filter from './components/Filters';
 import DetailCard from './components/DetailCard';

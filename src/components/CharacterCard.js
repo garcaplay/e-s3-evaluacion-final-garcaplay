@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
@@ -18,9 +19,17 @@ class CharacterCard extends Component {
     return (
         
           <div className="hp__list-card">
-            <img src={item.image} alt={item.name} className="list-card__image"></img>
-            <h2 className="list-card__name">{item.name}</h2>
-            <p className="list-card__house">{this.houseOrNot()}</p>
+            <div className="list-card-imagebox">
+              <img src={item.image} alt={item.name} className="list__card-image"></img>
+            </div>
+            <div className="list__card-databox">
+              <h2 className="list__card-name">{item.name}</h2>
+              <p className="list__card-house">{this.houseOrNot()}</p>
+              <div className="hp-list-link">
+                  <Link to={`/character/${item.id}`} style={{textDecoration:"none", color:"inherit"}}>See more</Link>
+                </div>
+            </div>
+            
           </div>
         
     );

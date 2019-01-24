@@ -1,0 +1,98 @@
+
+html{
+  height: 100vh;
+  background: white;
+}
+*{
+  box-sizing: border-box;
+}
+.app{}
+.hp__page{
+  margin: 0, auto;
+}
+.hp__header{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hp__header-title{
+  margin: 0;
+  font-size: 60px;
+}
+.hp__main{}
+
+.hp__filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hp__filter-input{
+  width: 400px;
+  height: 28px;
+  text-align: center;
+}
+
+.hp__detail{}
+.hp__detail-card{}
+.detail__card-imagebox{}
+.detail__card-image{}
+.detail__card-name{}
+.detail__card-house{}
+.detail__card-born{}
+.detail__card-patronus{}
+.detail__card-status{}
+.hp-detail-link{}
+
+.hp__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hp__list{
+  display: grid;
+  grid-template-columns: 180px 180px 180px 180px;
+  grid-auto-rows: 400px; 
+  grid-gap: 20px;
+  padding: 0;
+}
+.hp__list-item{
+  background-color: grey;
+  border: 1px solid black;
+  list-style-type: none;
+  color: white;
+  display: grid;
+  grid-template-rows: 240px 1fr;
+}
+.hp-list-link{
+  display: inline;
+  text-align: center;
+  padding: 8px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.list__card-databox{
+  height: 160px;
+  padding: 10px;
+  background-color: rgb(248, 133, 83); 
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.list-card-imagebox{
+  height: 240px;
+  overflow: hidden;
+}
+.list__card-image{
+  min-height: 100%;
+  width: 100%;
+  
+}
+.list__card-name{
+  margin: 0;
+}
+.list__card-house{
+  margin: 0;
+}
