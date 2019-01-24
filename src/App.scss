@@ -62,6 +62,7 @@ html{
   width: 600px;
   height: 300px;
   display: flex;
+  position: relative;
 }
 
 .detail__card-databox{
@@ -166,4 +167,57 @@ html{
 
 .list__card-house{
   margin: 0;
+}
+
+.card__container{
+  display: flex;
+}
+
+.status__container-alive{
+  
+}
+
+.detail__card-icon{
+  position: relative;
+  transform: translate(5px, -5px);
+  height: 24px;
+}
+
+.status-dead{
+}
+
+.patronus__container-yes{}
+.patronus__container-nop{
+  display: flex;
+}
+.patronus-nop{
+  height: 28px;
+  position: relative;
+  transform: translate(5px, -5px);
+}
+
+.house__container-nop{}
+.house-nop{
+  height: 26px;
+}
+.house__container-huff{}
+.house-huff{
+
+}
+.house__container-gryff{}
+.house-gryff{
+
+}
+.house__container-slyth{}
+.house-slyth{
+
+}
+.house__container-raven{}
+.house-raven{
+
+}
+.list__house-icon{
+  position: absolute;
+  transform: translateX(-100%);
+  height: 24px;
 }

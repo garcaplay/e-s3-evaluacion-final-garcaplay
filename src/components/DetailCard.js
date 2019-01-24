@@ -2,19 +2,97 @@ import React, {Component} from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ErrorPage from './ErrorPage';
+import Gryff from '../images/gryff.png';
+import Huff from '../images/huff.png';
+import Slyth from '../images/slyth.png';
+import Raven from '../images/raven.png';
+import NoPatronus from '../images/learncorn.png';
+import NoHouse from '../images/nohouse.png';
+import Dead from '../images/dead.png'
 
 class DetailCard extends Component {
 
   isCharacterAlive(){
     const {characters} = this.props;
     const selectedCharacter = this.props.match.params.id;
-    let aliveOrDead = "";
     if(characters[selectedCharacter].alive === true){
-      aliveOrDead = "ALIVE"
-      return aliveOrDead;
+      return(
+        <div className="card__container status__container-alive">
+        <p className="detail__card-status">State: ALIVE </p>
+        </div>
+      ); 
+      
     } else {
-      aliveOrDead = "DEAD"
-      return aliveOrDead;
+      return(
+        <div className="card__container status__container-dead">
+        <p className="detail__card-status">State: DEAD </p> 
+        <img className="detail__card-icon status-dead" src={Dead} alt="Deathly Hollows"/>
+        </div>
+      ); 
+    }
+  }
+
+  patronusOrNot(){
+    const {characters} = this.props;
+    const selectedCharacter = this.props.match.params.id;
+    if(characters[selectedCharacter].patronus !== ""){
+      return(
+        <div className="card__container patronus__container-yes">
+        <p className="detail__card-patronus">Patronus: {characters[selectedCharacter].patronus}</p>
+        </div>
+      )
+    } else {
+      return(
+        <div className="card__container patronus__container-nop">
+        <p className="detail__card-patronus">Patronus: Nope </p>
+        <img className="detail__card-icon patronus-nop" src={NoPatronus} alt="Studying unicorn"/>
+        </div>
+      )
+    }
+  }
+
+  whichHouse(){
+    const {characters} = this.props;
+    const selectedCharacter = this.props.match.params.id;
+    if(characters[selectedCharacter].house === ""){
+      return(
+        <div className="card__container house__container-nop">
+        <p className="detail__card-house">House: Nope</p>
+        <img className="detail__card-icon house-nop" src={NoHouse} alt="Sorting hat"/>
+        </div>
+      )
+    } else if(characters[selectedCharacter].house === "Hufflepuff"){
+      return(
+        <div className="card__container house__container-huff">
+          <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+          <img className="detail__card-icon house-huff" src={Huff} alt="Hufflepuff colors"/>
+        </div>
+      )
+    } else if(characters[selectedCharacter].house === "Gryffindor"){
+      return(
+        <div className="card__container house__container-gryff">
+          <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+          <img className="detail__card-icon house-gryff" src={Gryff} alt="Gryffindor colors"/>
+        </div>
+      )
+    } else if(characters[selectedCharacter].house === "Slytherin"){
+      return(
+        <div className="card__container house__container-slyth">
+          <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+          <img className="detail__card-icon house-slyth" src={Slyth} alt="Slytherin colors"/>
+        </div>
+      )
+    } else if(characters[selectedCharacter].house === "Ravenclaw"){
+      return(
+        <div className="card__container house__container-raven">
+          <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+          <img className="detail__card-icon house-raven" src={Raven} alt="Ravenclaw colors"/>
+        </div>
+      );
+    } else {
+      return(
+        <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+      )
     }
   }
 
@@ -30,10 +108,10 @@ class DetailCard extends Component {
       </div>
       <div className="detail__card-databox">
         <h2 className="detail__card-name">Name: {characters[selectedCharacter].name}</h2>
-        <p className="detail__card-house">House: {characters[selectedCharacter].house}</p>
+        {this.whichHouse()}
         <p className="detail__card-born">Born: {characters[selectedCharacter].yearOfBirth}</p>
-        <p className="detail__card-patronus">Patronus: {characters[selectedCharacter].patronus}</p>
-        <p className="detail__card-status">State: {this.isCharacterAlive()}</p>
+        {this.patronusOrNot()}
+        {this.isCharacterAlive()}
         <div className="hp-detail-link">
           <Link to="/" style={{textDecoration:"none", color:"inherit"}}>Go back</Link>
         </div>
