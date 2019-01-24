@@ -95,6 +95,16 @@ class DetailCard extends Component {
     }
   }
 
+  yearOfBirth(){
+    const {characters} = this.props;
+    const selectedCharacter = this.props.match.params.id;
+    if(characters[selectedCharacter].yearOfBirth !== ""){
+      return(<p className="detail__card-born">Born: {characters[selectedCharacter].yearOfBirth}</p>)
+    } else {
+      return(<p className="detail__card-born">Born: Unknown</p>)
+    }
+  }
+
   isCharacterSelected(){
     const {characters} = this.props;
     const selectedCharacter = this.props.match.params.id;
@@ -107,9 +117,9 @@ class DetailCard extends Component {
           <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name} className="detail__card-image"></img>
         </div>
         <div className="detail__card-databox">
-          <h2 className="detail__card-name">Name: {characters[selectedCharacter].name}</h2>
+          <h2 className="detail__card-name">{characters[selectedCharacter].name}</h2>
           {this.whichHouse()}
-          <p className="detail__card-born">Born: {characters[selectedCharacter].yearOfBirth}</p>
+          {this.yearOfBirth()}
           {this.patronusOrNot()}
           {this.isCharacterAlive()}
           <div className="hp-detail-link">
