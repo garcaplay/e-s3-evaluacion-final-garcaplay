@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CharacterList from './components/CharacterList';
+import Filter from './components/Filters';
 
 class App extends Component {
   constructor(props){
@@ -68,7 +69,7 @@ class App extends Component {
         </header>
         <main className="hp__main">
           <div className="hp__filter">
-            <input type="text" className="hp__filter-input" placeholder="Who are you looking for?" onKeyUp={this.getNameFilter}></input>
+            <Filter getNameFilter={this.getNameFilter}/>
           </div>
           <div className="hp__container">
             <ul className="hp__list">
