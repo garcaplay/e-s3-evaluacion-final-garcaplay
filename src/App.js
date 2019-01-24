@@ -5,8 +5,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      characters : []
+      characters : [],
+      nameFilter: ""
     }
+    this.getNameFilter = this.getNameFilter.bind(this);
   }
 
   componentDidMount(){
@@ -43,6 +45,18 @@ class App extends Component {
     }
   }
 
+  getNameFilter(e){
+    const query = e.currentTarget.value;
+    this.setState({
+      nameFilter: query
+    })
+  }
+
+  filteredList(){
+    const {characters, nameFilter} = this.state;
+    return characters.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase()))
+  }
+
   render() {
   
     return (
@@ -53,12 +67,12 @@ class App extends Component {
         </header>
         <main className="hp__main">
           <div className="hp__filter">
-            <input type="text" className="hp__filter-input" placeholder="Who are you looking for?"></input>
+            <input type="text" className="hp__filter-input" placeholder="Who are you looking for?" onKeyUp={this.getNameFilter}></input>
           </div>
           <div className="hp__container">
             <ul className="hp__list">
 
-              {this.state.characters.map(item =>{ 
+              {this.filteredList().map(item =>{ 
                 if(item.house !== ""){
                   return(
                   <li className="hp__list-item" key={item.id} id={item.id}>
