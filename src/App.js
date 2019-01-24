@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import CharacterList from './components/CharacterList';
 import Filter from './components/Filters';
@@ -80,23 +81,18 @@ class App extends Component {
           <h2 className="hp__header-title">Harry Potter Characters</h2>
         </header>
         <main className="hp__main">
-          <div className="hp__filter">
-            <Filter getNameFilter={this.getNameFilter}/>
-          </div>
+          <Switch>
+            <Route exact path="/" render={()=>(
+              <Fragment>
+                <Filter getNameFilter={this.getNameFilter}/>
+                <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()}/>
+              </Fragment>
+            )}/>
+            <Route path="/character/:id" render={(props) => 
+              <DetailCard match={props.match} selectedCharacter={this.state.selectedCharacter} characters={this.state.characters}></DetailCard>}
+            />
+          </Switch>
 
-
-          <div className="hp__detail">
-          <DetailCard selectedCharacter={this.state.selectedCharacter} characters={this.state.characters}></DetailCard>  
-          </div>
-
-
-          <div className="hp__container">
-            <ul className="hp__list">
-              <CharacterList 
-              characterSelection={this.characterSelection}
-              filteredList={this.filteredList()}/>
-            </ul>
-          </div>
         </main>
         </div>
       </div>
