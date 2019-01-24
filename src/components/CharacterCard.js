@@ -1,4 +1,5 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
+import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
   houseOrNot(){
@@ -15,7 +16,6 @@ class CharacterCard extends Component {
   render() {
     const {item} =this.props;
     return (
-      <Fragment>
         
           <div className="hp__list-card">
             <img src={item.image} alt={item.name} className="list-card__image"></img>
@@ -23,9 +23,12 @@ class CharacterCard extends Component {
             <p className="list-card__house">{this.houseOrNot()}</p>
           </div>
         
-      </Fragment>
     );
   }
+}
+
+CharacterCard.propTypes ={
+  item : PropTypes.object.isRequired, 
 }
 
 export default CharacterCard;

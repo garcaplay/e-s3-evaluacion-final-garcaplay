@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class DetailCard extends Component {
 
   isCharacterAlive(){
-    const {selectedCharacter, characters} = this.props;
+    const {characters} = this.props;
+    const selectedCharacter = this.props.match.params.id;
     let aliveOrDead = "";
     if(characters[selectedCharacter].alive === true){
       aliveOrDead = "ALIVE"
@@ -44,6 +46,11 @@ class DetailCard extends Component {
       
     );
   }
+}
+
+DetailCard.propTypes ={
+  selectedCharacter : PropTypes.string.isRequired,
+  characters: PropTypes.array.isRequired
 }
 
 export default DetailCard;
