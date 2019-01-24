@@ -23,8 +23,7 @@ class CharacterList extends Component {
     }
   }
   
-  render() {
-    
+  render() {  
     return (
       <div className="hp__container">
         <ul className="hp__list">

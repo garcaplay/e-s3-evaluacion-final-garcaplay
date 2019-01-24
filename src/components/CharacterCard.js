@@ -9,59 +9,49 @@ import Raven from '../images/raven.png';
 class CharacterCard extends Component {
   houseOrNot(){
     const {item} =this.props;
-    let house = "";
-    if(item.house !== ""){
-      house = item.house;
-      return house;  
-    } else{
-      house = "Do not belong to any house";
-      return house;
-    }
+    let house = (item.house !== "")? item.house : "Do not belong to any house";
+    return house;
   }
 
   whichHouse(){
     const {item} = this.props;
-    
-    
-      if(item.house !== ""){
-        if(item.house === "Hufflepuff"){
-          return(
-              <img className="list__house-icon" src={Huff} alt="Hufflepuff colors"/>
-          )
-        } else if(item.house === "Gryffindor"){
-          return(
-              <img className="list__house-icon" src={Gryff} alt="Gryffindor colors"/>
-          )
-        } else if(item.house === "Slytherin"){
-          return( 
-            <img className="list__house-icon" src={Slyth} alt="Slytherin colors"/>
-          )
-        } else if(item.house === "Ravenclaw"){
-          return(
-            <img src={Raven} alt="Ravenclaw colors" className="list__house-icon"/>
-          );
-        }
-      } 
-    
+    if(item.house !== ""){
+      if(item.house === "Hufflepuff"){
+        return(
+            <img className="list__house-icon" src={Huff} alt="Hufflepuff colors"/>
+        )
+      } else if(item.house === "Gryffindor"){
+        return(
+            <img className="list__house-icon" src={Gryff} alt="Gryffindor colors"/>
+        )
+      } else if(item.house === "Slytherin"){
+        return( 
+          <img className="list__house-icon" src={Slyth} alt="Slytherin colors"/>
+        )
+      } else if(item.house === "Ravenclaw"){
+        return(
+          <img src={Raven} alt="Ravenclaw colors" className="list__house-icon"/>
+        );
+      }
+    }  
   }
   
   render() {
     const {item} =this.props;
     return ( 
-          <div className="hp__list-card">
-            <div className="list-card-imagebox">
-              <img src={item.image} alt={item.name} className="list__card-image"></img>
-              {this.whichHouse()}
-            </div>
-            <div className="list__card-databox">
-              <h2 className="list__card-name">{item.name}</h2>
-              <p className="list__card-house">{this.houseOrNot()}</p>
-              <div className="hp-list-link">
-                  <Link to={`/character/${item.id}`} style={{textDecoration:"none", color:"inherit"}}>See more</Link>
-                </div>
-            </div>  
+      <div className="hp__list-card">
+        <div className="list-card-imagebox">
+          <img src={item.image} alt={item.name} className="list__card-image"></img>
+          {this.whichHouse()}
+        </div>
+        <div className="list__card-databox">
+          <h2 className="list__card-name">{item.name}</h2>
+          <p className="list__card-house">{this.houseOrNot()}</p>
+          <div className="hp-list-link">
+            <Link to={`/character/${item.id}`} style={{textDecoration:"none", color:"inherit"}}>See more</Link>
           </div>
-        
+        </div>  
+      </div>    
     );
   }
 }

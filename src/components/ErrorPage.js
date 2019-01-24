@@ -5,8 +5,7 @@ class ErrorPage extends Component {
     return (
       <div className="errorpage">
         <p>No hay datos</p>
-      </div>
-      
+      </div>  
     );
   }
 }

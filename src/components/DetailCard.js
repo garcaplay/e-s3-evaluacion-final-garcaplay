@@ -20,8 +20,7 @@ class DetailCard extends Component {
         <div className="card__container status__container-alive">
         <p className="detail__card-status">State: ALIVE </p>
         </div>
-      ); 
-      
+      );       
     } else {
       return(
         <div className="card__container status__container-dead">
@@ -102,32 +101,30 @@ class DetailCard extends Component {
     if(characters.length < 1){
       return (<ErrorPage/>);
     }else{
-      return(<div className="hp__detail-card">
-      <div className="detail__card-imagebox">
-        <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name} className="detail__card-image"></img>
-      </div>
-      <div className="detail__card-databox">
-        <h2 className="detail__card-name">Name: {characters[selectedCharacter].name}</h2>
-        {this.whichHouse()}
-        <p className="detail__card-born">Born: {characters[selectedCharacter].yearOfBirth}</p>
-        {this.patronusOrNot()}
-        {this.isCharacterAlive()}
-        <div className="hp-detail-link">
-          <Link to="/" style={{textDecoration:"none", color:"inherit"}}>Go back</Link>
+      return(
+      <div className="hp__detail-card">
+        <div className="detail__card-imagebox">
+          <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name} className="detail__card-image"></img>
         </div>
-      </div>
-      
+        <div className="detail__card-databox">
+          <h2 className="detail__card-name">Name: {characters[selectedCharacter].name}</h2>
+          {this.whichHouse()}
+          <p className="detail__card-born">Born: {characters[selectedCharacter].yearOfBirth}</p>
+          {this.patronusOrNot()}
+          {this.isCharacterAlive()}
+          <div className="hp-detail-link">
+            <Link to="/" style={{textDecoration:"none", color:"inherit"}}>Go back</Link>
+          </div>
+        </div>
       </div>)
     }
   }
   
   render() {
     return (
-      
       <div className="hp__detail">
         {this.isCharacterSelected()}
       </div>
-      
     );
   }
 }
