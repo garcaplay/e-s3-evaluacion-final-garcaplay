@@ -1,8 +1,10 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
+import {Link} from 'react-router-dom';
 
 class DetailCard extends Component {
   isCharacterSelected(){
-    const {selectedCharacter, characters} = this.props;
+    const {characters} = this.props;
+    const selectedCharacter = this.props.match.params.id;
     if(selectedCharacter === ""){
       return "No hay datos"
     }else{
@@ -18,9 +20,14 @@ class DetailCard extends Component {
   }
   render() {
     return (
-      <Fragment>
-      {this.isCharacterSelected()}
-      </Fragment>
+      
+      <div className="hp__detail">
+        {this.isCharacterSelected()}
+        <div className="hp-detail-btn">
+          <Link to="/">Go back</Link>
+        </div>
+      </div>
+      
     );
   }
 }
