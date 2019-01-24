@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   getCharacters(){
-    const ENDPOINT = 'http://hp-api.herokuapp.com/api/characters';
+    const ENDPOINT = 'https://hp-api.herokuapp.com/api/characters';
     fetch(ENDPOINT)
       .then(res=>res.json())
       .then(data =>{
