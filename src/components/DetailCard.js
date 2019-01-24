@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ErrorPage from './ErrorPage';
 
 class DetailCard extends Component {
 
@@ -21,7 +22,7 @@ class DetailCard extends Component {
     const {characters} = this.props;
     const selectedCharacter = this.props.match.params.id;
     if(characters.length < 1){
-      return "No hay datos"
+      return (<ErrorPage/>);
     }else{
       return(<div className="hp__detail-card">
       <div className="detail__card-imagebox">
