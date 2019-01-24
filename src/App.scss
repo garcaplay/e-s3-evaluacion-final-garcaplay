@@ -66,6 +66,7 @@ html{
 }
 
 .detail__card-databox{
+  flex-grow: 1;
   padding: 10px;
   display: flex;
   flex-flow: column nowrap;
@@ -83,6 +84,7 @@ html{
 
 .detail__card-name{
   margin: 0;
+  align-self: center;
 }
 
 .detail__card-house{
