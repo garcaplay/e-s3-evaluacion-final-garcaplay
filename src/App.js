@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import './App.css';
 import CharacterList from './components/CharacterList';
 import Filter from './components/Filters';
+import DetailCard from './components/DetailCard';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
       characters : [],
-      nameFilter: ""
-    }
+      nameFilter: "",
+      selectedCharacter: ""
+    };
     this.getNameFilter = this.getNameFilter.bind(this);
+    this.characterSelection = this.characterSelection.bind(this);
+    
   }
 
   componentDidMount(){
@@ -59,6 +63,14 @@ class App extends Component {
     return characters.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase()))
   }
 
+  characterSelection(e){
+    let characterID = e.currentTarget.id;
+    this.setState({
+      selectedCharacter : characterID
+    })
+  }
+
+
   render() {
   
     return (
@@ -71,9 +83,18 @@ class App extends Component {
           <div className="hp__filter">
             <Filter getNameFilter={this.getNameFilter}/>
           </div>
+
+
+          <div className="hp__detail">
+          <DetailCard selectedCharacter={this.state.selectedCharacter} characters={this.state.characters}></DetailCard>  
+          </div>
+
+
           <div className="hp__container">
             <ul className="hp__list">
-              <CharacterList filteredList={this.filteredList()}/>
+              <CharacterList 
+              characterSelection={this.characterSelection}
+              filteredList={this.filteredList()}/>
             </ul>
           </div>
         </main>
