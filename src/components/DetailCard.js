@@ -20,7 +20,7 @@ class DetailCard extends Component {
   isCharacterSelected(){
     const {characters} = this.props;
     const selectedCharacter = this.props.match.params.id;
-    if(selectedCharacter === ""){
+    if(characters.length < 1){
       return "No hay datos"
     }else{
       return(<div className="hp__detail-card">

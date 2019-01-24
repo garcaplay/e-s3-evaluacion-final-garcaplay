@@ -3,19 +3,30 @@ import PropTypes from 'prop-types';
 import CharacterCard from './CharacterCard';
 
 class CharacterList extends Component {
+
+  filterExist(){
+    const {filteredList} = this.props;
+    if(filteredList.length < 1){
+      return "No hay datos"
+    } else{
+      return(
+        filteredList.map(item =>{ 
+          return(
+            <li className="hp__list-item" key={item.id} id={item.id} onClick={this.props.characterSelection}>
+              <CharacterCard item={item}/>
+            </li>
+          )
+        })
+      )
+    }
+  }
   
   render() {
-    const {filteredList} = this.props;
+    
     return (
       <div className="hp__container">
         <ul className="hp__list">
-          {filteredList.map(item =>{ 
-            return(
-              <li className="hp__list-item" key={item.id} id={item.id} onClick={this.props.characterSelection}>
-                <CharacterCard item={item}/>
-              </li>
-            )
-          })}
+          {this.filterExist()}
         </ul>
       </div>
     );
