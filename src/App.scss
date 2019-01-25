@@ -15,12 +15,11 @@ html{
   margin: 0, auto;
   height: 100%;
   display: grid;
-  grid-template-rows: 100px, 1fr;
-  grid-template-areas: "header", "main";
+  grid-template-rows: auto, 1fr;
+  
 }
 
 .hp__header{
-  grid-area: "header";
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,10 +28,11 @@ html{
 .hp__header-title{
   margin: 0;
   font-size: 60px;
+  text-align: center;
 }
 
 .hp__main{
-  grid-area: "main";
+  
 }
 
 .hp__filter{
@@ -59,10 +59,14 @@ html{
   background-color: rgb(248, 133, 83);
   border: 1px solid black;
   color: white;
-  width: 600px;
+  width: 400px;
   height: 300px;
   display: flex;
   position: relative;
+  @media all and (min-width: 768px){
+    width: 600px;
+    height: 300px;
+  }
 }
 
 .detail__card-databox{
@@ -120,10 +124,13 @@ html{
 
 .hp__list{
   display: grid;
-  grid-template-columns: 180px 180px 180px 180px;
+  grid-template-columns: 180px;
   grid-auto-rows: 400px; 
   grid-gap: 20px;
   padding: 0;
+  @media all and (min-width: 768px){
+    grid-template-columns: 180px 180px 180px 180px;
+  }
 }
 
 .hp__list-item{

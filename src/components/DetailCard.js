@@ -110,23 +110,24 @@ class DetailCard extends Component {
     const selectedCharacter = this.props.match.params.id;
     if(characters.length < 1){
       return (<ErrorPage/>);
-    }else{
+    } else {
       return(
-      <div className="hp__detail-card">
-        <div className="detail__card-imagebox">
-          <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name} className="detail__card-image"></img>
-        </div>
-        <div className="detail__card-databox">
-          <h2 className="detail__card-name">{characters[selectedCharacter].name}</h2>
-          {this.whichHouse()}
-          {this.yearOfBirth()}
-          {this.patronusOrNot()}
-          {this.isCharacterAlive()}
-          <div className="hp-detail-link">
-            <Link to="/" style={{textDecoration:"none", color:"inherit"}}>Go back</Link>
+        <div className="hp__detail-card">
+          <div className="detail__card-imagebox">
+            <img src={characters[selectedCharacter].image} alt={characters[selectedCharacter].name} className="detail__card-image"></img>
+          </div>
+          <div className="detail__card-databox">
+            <h2 className="detail__card-name">{characters[selectedCharacter].name}</h2>
+            {this.whichHouse()}
+            {this.yearOfBirth()}
+            {this.patronusOrNot()}
+            {this.isCharacterAlive()}
+            <div className="hp-detail-link">
+              <Link to="/" style={{textDecoration:"none", color:"inherit"}}>Go back</Link>
+            </div>
           </div>
         </div>
-      </div>)
+      )
     }
   }
   

@@ -4,7 +4,7 @@ import './App.scss';
 import CharacterList from './components/CharacterList';
 import Filter from './components/Filters';
 import DetailCard from './components/DetailCard';
-import {getCharacters} from './services/CharacterService';
+import {getCharactersList} from './services/CharacterService';
 
 class App extends Component {
   constructor(props){
@@ -24,16 +24,16 @@ class App extends Component {
   }
 
   getCharacters(){
-      getCharacters()
-      .then(data =>{
-        const newCharacters = data.map((item, index) =>{
-          return {...item, id: index}
-        })
-        this.setState({
-          characters: newCharacters
-        })
-        this.saveCharacters(newCharacters, 'savedCharacters')
+    getCharactersList()
+    .then(data =>{
+      const newCharacters = data.map((item, index) =>{
+        return {...item, id: index}
       })
+      this.setState({
+        characters: newCharacters
+      })
+      this.saveCharacters(newCharacters, 'savedCharacters')
+    })
   }
 
   saveCharacters(data, dataName){
@@ -41,12 +41,12 @@ class App extends Component {
   }
 
   getSavedCharacters(){
-    if(localStorage.getItem('savedCharacters') !==null){
+    if(localStorage.getItem('savedCharacters') !== null){
       const mySavedCharacters = JSON.parse(localStorage.getItem('savedCharacters'));
       this.setState({
         characters: mySavedCharacters
       })
-    } else{
+    } else {
       this.getCharacters()
     }
   }
@@ -60,7 +60,8 @@ class App extends Component {
 
   filteredList(){
     const {characters, nameFilter} = this.state;
-    return characters.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase()))
+    const filteredCharacters = characters.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase()));
+    return filteredCharacters;
   }
 
   characterSelection(e){
@@ -76,23 +77,22 @@ class App extends Component {
     return (
       <div className="app">
         <div className="hp__page">
-        <header className="hp__header">
-          <h2 className="hp__header-title">Harry Potter Characters</h2>
-        </header>
-        <main className="hp__main">
-          <Switch>
-            <Route exact path="/" render={()=>(
-              <Fragment>
-                <Filter getNameFilter={this.getNameFilter}/>
-                <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()}/>
-              </Fragment>
-            )}/>
-            <Route path="/character/:id" render={(props) => 
-              <DetailCard match={props.match} selectedCharacter={this.state.selectedCharacter} characters={this.state.characters}></DetailCard>}
-            />
-          </Switch>
-
-        </main>
+          <header className="hp__header">
+            <h2 className="hp__header-title">Harry Potter Characters</h2>
+          </header>
+          <main className="hp__main">
+            <Switch>
+              <Route exact path="/" render={()=>(
+                <Fragment>
+                  <Filter getNameFilter={this.getNameFilter}/>
+                  <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()}/>
+                </Fragment>
+              )}/>
+              <Route path="/character/:id" render={(props) => 
+                <DetailCard match={props.match} selectedCharacter={this.state.selectedCharacter} characters={this.state.characters}></DetailCard>}
+              />
+            </Switch>
+          </main>
         </div>
       </div>
     );

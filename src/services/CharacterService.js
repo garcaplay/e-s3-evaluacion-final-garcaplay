@@ -1,3 +1,3 @@
 const ENDPOINT = 'http://hp-api.herokuapp.com/api/characters';
-const getCharacters = () => fetch(ENDPOINT).then(res=>res.json());
-export {getCharacters};
+const getCharactersList = () => fetch(ENDPOINT).then(res=>res.json());
+export {getCharactersList};
