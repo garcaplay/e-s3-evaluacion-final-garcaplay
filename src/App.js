@@ -107,6 +107,14 @@ class App extends Component {
               />
             </Switch>
           </main>
+          <footer>
+            <div className="hp__footer">
+              <p className="hp__footer-p">© Silvia García Cacho</p>
+              <div className="hp__footer-img">
+              <img src={Snitch} alt="Snitch"/>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     );
