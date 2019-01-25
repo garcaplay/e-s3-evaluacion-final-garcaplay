@@ -83,7 +83,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={()=>(
                 <Fragment>
-                  <Filter getNameFilter={this.getNameFilter}/>
+                  <Filter getNameFilter={this.getNameFilter} nameFilter={this.state.nameFilter}/>
                   <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()}/>
                 </Fragment>
               )}/>
