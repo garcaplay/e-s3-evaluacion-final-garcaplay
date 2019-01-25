@@ -1,7 +1,9 @@
+@import 'core/variables';
+@import 'core/mixins';
 
 html{
   height: 100vh;
-  background: white;
+  background: $white;
 }
 
 *{
@@ -16,17 +18,13 @@ html{
   height: 100%;
   display: grid;
   grid-template-rows: auto, 1fr;
-  background-image: url("./images/bg2.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("../../images/bg.png");
+  @include bgposition();
   overflow: scroll;
 }
 
 .hp__header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center();
 }
 
 .hp__header-title{
@@ -37,18 +35,14 @@ html{
 }
 
 .hp__main{
-  display: flex;
+  @include center();
   flex-direction: column;
-  align-items: center;
+  
   .errorpage{
     width: 400px;
-    background-image: url("./images/marauder.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+    background-image: url("../../images/marauder.jpg");
+    @include bgposition();
+    @include center();
     position: absolute;
     transform: translate(-28%, 50%);
 
@@ -57,7 +51,7 @@ html{
       font-weight: bold;
       text-transform: uppercase;
       font-size: 40px;
-      text-shadow: 2px 2px 8px #A46817;
+      text-shadow: 2px 2px 8px $golden;
     }
     
     @media all and (min-width: 768px){
@@ -69,9 +63,7 @@ html{
 }
 
 .hp__filter{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center();
 }
 
 .hp__filter-input{
@@ -84,9 +76,7 @@ html{
 .hp__detail{
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center();
   .errorpage{
     transform: translate(0%, -70%);
     @media all and (min-width: 768px){
@@ -96,9 +86,9 @@ html{
 }
 
 .hp__detail-card{
-  background-color: rgb(248, 133, 83);
-  border: 1px solid black;
-  color: white;
+  background-color: $card;
+  border: 1px solid $black;
+  color: $white;
   width: 400px;
   height: 300px;
   display: flex;
@@ -152,14 +142,12 @@ html{
   text-align: center;
   padding: 8px;
   height: 40px;
-  background-image: linear-gradient(rgb(248, 133, 83), tomato);
+  background-image: $gradient;
   border-radius: 10px;
 }
 
 .hp__container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center();
 }
 
 .hp__list{
@@ -175,16 +163,16 @@ html{
 
 .hp__list-item{
   background-color: grey;
-  border: 2px solid black;
+  border: 2px solid $black;
   list-style-type: none;
-  color: white;
+  color: $white;
   display: grid;
   grid-template-rows: 240px 1fr;
   position: relative;
 }
 
 .hp-list-link{
-  background-image: linear-gradient(rgb(248, 133, 83), tomato);
+  background-image: $gradient;
   text-align: center;
   padding: 8px;
   height: 40px;
@@ -194,7 +182,7 @@ html{
 .list__card-databox{
   height: 156px;
   padding: 10px;
-  background-color: rgb(248, 133, 83); 
+  background-color: $card;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
