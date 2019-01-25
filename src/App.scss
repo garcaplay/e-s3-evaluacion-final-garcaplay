@@ -50,7 +50,7 @@ html{
     justify-content: center;
     align-items: center; 
     position: absolute;
-    transform: translate(-40%, -100%);
+    transform: translate(-28%, 50%);
 
     p{
       color: rgb(62, 4, 5);
@@ -63,7 +63,7 @@ html{
     @media all and (min-width: 768px){
       width: 800px;
       font-size: 60px;
-      transform: translate(-45%, -100%);
+      transform: translate(0%, 60%);
     }
   }
 }
@@ -87,6 +87,12 @@ html{
   display: flex;
   justify-content: center;
   align-items: center;
+  .errorpage{
+    transform: translate(0%, -70%);
+    @media all and (min-width: 768px){
+      transform: translate(0%, 60%);
+    }
+  }
 }
 
 .hp__detail-card{
