@@ -134,7 +134,12 @@ class DetailCard extends Component {
   render() {
     if(this.props.characters.length < 1 || this.props.match.params.id > this.props.characters.length){
       return (
-        <ErrorPage/>);
+        <div>
+          <ErrorPage/>
+          <Link to="/" style={{textDecoration:"none", color:"white"}}>
+            <div className="hp-detail-link">Go back</div>
+          </Link>
+      </div>);
     }else {
       return (
         <div className="hp__detail">

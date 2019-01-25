@@ -49,7 +49,9 @@ html{
     display: flex;
     justify-content: center;
     align-items: center; 
-    position: relative;
+    position: absolute;
+    transform: translate(-40%, -100%);
+
     p{
       color: rgb(62, 4, 5);
       font-weight: bold;
@@ -57,18 +59,11 @@ html{
       font-size: 40px;
       text-shadow: 2px 2px 8px #A46817;
     }
-    .hp-detail-link{
-      position: absolute;
-      right: 10px;
-      transform: translate(-50%, -50%);
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      color: white;
-    }
+    
     @media all and (min-width: 768px){
       width: 800px;
       font-size: 60px;
+      transform: translate(-45%, -100%);
     }
   }
 }
