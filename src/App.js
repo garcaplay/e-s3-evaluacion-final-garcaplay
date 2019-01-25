@@ -15,8 +15,7 @@ class App extends Component {
       selectedCharacter: ""
     };
     this.getNameFilter = this.getNameFilter.bind(this);
-    this.characterSelection = this.characterSelection.bind(this);
-    
+    this.characterSelection = this.characterSelection.bind(this);  
   }
 
   componentDidMount(){

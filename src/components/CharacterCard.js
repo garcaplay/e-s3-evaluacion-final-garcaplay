@@ -47,9 +47,10 @@ class CharacterCard extends Component {
         <div className="list__card-databox">
           <h2 className="list__card-name">{item.name}</h2>
           <p className="list__card-house">{this.houseOrNot()}</p>
-          <div className="hp-list-link">
-            <Link to={`/character/${item.id}`} style={{textDecoration:"none", color:"inherit"}}>See more</Link>
-          </div>
+          
+            <Link to={`/character/${item.id}`} style={{textDecoration:"none", color:"inherit"}}>
+            <div className="hp-list-link">See more</div>
+            </Link> 
         </div>  
       </div>    
     );

@@ -122,9 +122,9 @@ class DetailCard extends Component {
             {this.yearOfBirth()}
             {this.patronusOrNot()}
             {this.isCharacterAlive()}
-            <div className="hp-detail-link">
-              <Link to="/" style={{textDecoration:"none", color:"inherit"}}>Go back</Link>
-            </div>
+              <Link to="/" style={{textDecoration:"none", color:"inherit"}}>
+              <div className="hp-detail-link">Go back</div>
+              </Link>
           </div>
         </div>
       )

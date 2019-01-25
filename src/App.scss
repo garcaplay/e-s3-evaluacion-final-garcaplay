@@ -27,6 +27,7 @@ html{
 
 .hp__header-title{
   margin: 0;
+  padding: 20px;
   font-size: 60px;
   text-align: center;
 }
@@ -42,6 +43,7 @@ html{
 }
 
 .hp__filter-input{
+  margin: 0, 20px;
   width: 400px;
   height: 28px;
   text-align: center;
@@ -112,7 +114,7 @@ html{
   text-align: center;
   padding: 8px;
   height: 40px;
-  border: 2px solid black;
+  background-image: linear-gradient(rgb(248, 133, 83), tomato);
   border-radius: 10px;
 }
 
@@ -143,11 +145,10 @@ html{
 }
 
 .hp-list-link{
-  
+  background-image: linear-gradient(rgb(248, 133, 83), tomato);
   text-align: center;
   padding: 8px;
   height: 40px;
-  border: 2px solid black;
   border-radius: 10px;
 }
 
