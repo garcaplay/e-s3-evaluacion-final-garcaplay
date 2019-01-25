@@ -90,7 +90,7 @@ html{
   .errorpage{
     transform: translate(0%, -70%);
     @media all and (min-width: 768px){
-      transform: translate(0%, 60%);
+      transform: translate(0%, -70%);
     }
   }
 }
