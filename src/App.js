@@ -5,6 +5,7 @@ import CharacterList from './components/CharacterList';
 import Filter from './components/Filters';
 import DetailCard from './components/DetailCard';
 import {getCharactersList} from './services/CharacterService';
+import Snitch from './images/snitch.png';
 
 class App extends Component {
   constructor(props){
@@ -91,7 +92,7 @@ class App extends Component {
       <div className="app">
         <div className="hp__page">
           <header className="hp__header">
-            <h2 className="hp__header-title">Harry Potter Characters</h2>
+            <h2 className="hp__header-title">Harry P<span><img src={Snitch} alt="o" className="title-img"/></span>tter Characters</h2>
           </header>
           <main className="hp__main">
             <Switch>
