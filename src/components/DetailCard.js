@@ -53,7 +53,7 @@ class DetailCard extends Component {
   whichHouse(){
     const {characters} = this.props;
     const selectedCharacter = this.props.match.params.id;
-    if(characters[selectedCharacter].house === ""){
+    if(characters[selectedCharacter].house === "No house"){
       return(
         <div className="card__container house__container-nop">
         <p className="detail__card-house">House: Nope</p>

@@ -12,9 +12,11 @@ class App extends Component {
     this.state={
       characters : [],
       nameFilter: "",
+      houseFilter: "",
       selectedCharacter: ""
     };
     this.getNameFilter = this.getNameFilter.bind(this);
+    this.getHouseFilter = this.getHouseFilter.bind(this);
     this.characterSelection = this.characterSelection.bind(this);  
   }
 
@@ -26,7 +28,12 @@ class App extends Component {
     getCharactersList()
     .then(data =>{
       const newCharacters = data.map((item, index) =>{
-        return {...item, id: index}
+        if(item.house !== ""){
+          console.log("im on it")
+          return {...item, id: index}
+        } else {
+          return {...item, house: "No house", id: index}
+        }
       })
       this.setState({
         characters: newCharacters
@@ -58,15 +65,22 @@ class App extends Component {
   }
 
   filteredList(){
-    const {characters, nameFilter} = this.state;
-    const filteredCharacters = characters.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase()));
+    const {characters, nameFilter, houseFilter} = this.state;
+    const filteredCharacters = characters.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase()) && item.house.includes(houseFilter));
     return filteredCharacters;
   }
 
   characterSelection(e){
-    let characterID = e.currentTarget.id;
+    const characterID = e.currentTarget.id;
     this.setState({
       selectedCharacter : characterID
+    })
+  }
+
+  getHouseFilter(e){
+    const query = e.currentTarget.value;
+    this.setState({
+      houseFilter: query
     })
   }
 
@@ -83,7 +97,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={()=>(
                 <Fragment>
-                  <Filter getNameFilter={this.getNameFilter} nameFilter={this.state.nameFilter}/>
+                  <Filter getNameFilter={this.getNameFilter} nameFilter={this.state.nameFilter} houseFilter={this.getHouseFilter}/>
                   <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()}/>
                 </Fragment>
               )}/>
