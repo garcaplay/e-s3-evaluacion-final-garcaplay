@@ -9,7 +9,7 @@ import Raven from '../images/raven.png';
 class CharacterCard extends Component {
   houseOrNot(){
     const {item} =this.props;
-    let house = (item.house !== "")? item.house : "Do not belong to any house";
+    let house = (item.house !== "No house")? item.house : "No house";
     return house;
   }
 
