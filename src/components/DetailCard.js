@@ -132,11 +132,16 @@ class DetailCard extends Component {
   }
   
   render() {
-    return (
-      <div className="hp__detail">
-        {this.isCharacterSelected()}
-      </div>
-    );
+    if(this.props.characters.length < 1 || this.props.match.params.id > this.props.characters.length){
+      return (
+        <ErrorPage/>);
+    }else {
+      return (
+        <div className="hp__detail">
+          {this.isCharacterSelected()}
+        </div>
+      );
+      }
   }
 }
 

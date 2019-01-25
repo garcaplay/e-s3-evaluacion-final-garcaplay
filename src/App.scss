@@ -16,7 +16,11 @@ html{
   height: 100%;
   display: grid;
   grid-template-rows: auto, 1fr;
-  
+  background-image: url("./images/bg2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: scroll;
 }
 
 .hp__header{
@@ -33,7 +37,28 @@ html{
 }
 
 .hp__main{
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .errorpage{
+    width: 400px;
+    background-image: url("./images/marauder.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: rgb(62, 4, 5);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 40px;
+    text-shadow: 2px 2px 8px #A46817;
+    @media all and (min-width: 768px){
+      width: 800px;
+      font-size: 60px;
+    }
+  }
 }
 
 .hp__filter{
@@ -51,10 +76,11 @@ html{
 
 .hp__detail{
   height: 100%;
+  width: 100%;
+  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightcyan;
 }
 
 .hp__detail-card{
@@ -137,11 +163,12 @@ html{
 
 .hp__list-item{
   background-color: grey;
-  border: 1px solid black;
+  border: 2px solid black;
   list-style-type: none;
   color: white;
   display: grid;
   grid-template-rows: 240px 1fr;
+  position: relative;
 }
 
 .hp-list-link{
@@ -153,7 +180,7 @@ html{
 }
 
 .list__card-databox{
-  height: 160px;
+  height: 156px;
   padding: 10px;
   background-color: rgb(248, 133, 83); 
   display: flex;

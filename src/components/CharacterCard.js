@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ErrorPage from './ErrorPage';
 import Gryff from '../images/gryff.png';
 import Huff from '../images/huff.png';
 import Slyth from '../images/slyth.png';
