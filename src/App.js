@@ -14,11 +14,13 @@ class App extends Component {
       characters : [],
       nameFilter: "",
       houseFilter: "",
-      selectedCharacter: ""
+      selectedCharacter: "",
+      favorited: []
     };
     this.getNameFilter = this.getNameFilter.bind(this);
     this.getHouseFilter = this.getHouseFilter.bind(this);
-    this.characterSelection = this.characterSelection.bind(this);  
+    this.characterSelection = this.characterSelection.bind(this); 
+    this.favoriteIt = this.favoriteIt.bind(this); 
   }
 
   componentDidMount(){
@@ -85,6 +87,16 @@ class App extends Component {
     })
   }
 
+  favoriteIt(e){
+    console.log("estoy llamada");
+    const favIcon = e.currentTarget.id;
+    const arrayCopy = this.state.favorited.slice(0);
+    arrayCopy.push(favIcon);
+    this.setState({
+      favorited: arrayCopy,
+    });
+  }
+
 
   render() {
   
@@ -99,7 +111,7 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <Fragment>
                   <Filter getNameFilter={this.getNameFilter} nameFilter={this.state.nameFilter} houseFilter={this.getHouseFilter}/>
-                  <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()}/>
+                  <CharacterList characterSelection={this.characterSelection} filteredList={this.filteredList()} action={this.favoriteIt} favorited={this.state.favorited}/>
                 </Fragment>
               )}/>
               <Route path="/character/:id" render={(props) => 

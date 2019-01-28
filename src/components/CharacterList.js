@@ -15,7 +15,7 @@ class CharacterList extends Component {
         filteredList.map(item =>{ 
           return(
             <li className="hp__list-item" key={item.id} id={item.id} onClick={this.props.characterSelection}>
-              <CharacterCard item={item} />
+              <CharacterCard item={item} action={this.props.action} favorited={this.props.favorited} />
             </li>
           );
         })

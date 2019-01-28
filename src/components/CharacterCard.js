@@ -18,28 +18,36 @@ class CharacterCard extends Component {
     if(item.house !== ""){
       if(item.house === "Hufflepuff"){
         return(
-            <img className="list__house-icon" src={Huff} alt="Hufflepuff colors"/>
+            <img className="list__house-icon" src={Huff} alt="Hufflepuff colors" id={item.id} onClick={this.props.action}/>
         )
       } else if(item.house === "Gryffindor"){
         return(
-            <img className="list__house-icon" src={Gryff} alt="Gryffindor colors"/>
+            <img className="list__house-icon" src={Gryff} alt="Gryffindor colors" id={item.id} onClick={this.props.action}/>
         )
       } else if(item.house === "Slytherin"){
         return( 
-          <img className="list__house-icon" src={Slyth} alt="Slytherin colors"/>
+          <img className="list__house-icon" src={Slyth} alt="Slytherin colors" id={item.id} onClick={this.props.action}/>
         )
       } else if(item.house === "Ravenclaw"){
         return(
-          <img src={Raven} alt="Ravenclaw colors" className="list__house-icon"/>
+          <img src={Raven} alt="Ravenclaw colors" className="list__house-icon" id={item.id} onClick={this.props.action}/>
         );
       }
     }  
+  }
+
+  borderFav(id){
+    if(this.props.favorited.includes(id)){
+      return "hp__list-card--fav";
+    } else {
+      return id;
+    }
   }
   
   render() {
     const {item} =this.props;
     return ( 
-      <div className="hp__list-card">
+      <div className={`hp__list-card ${this.borderFav(item.id)}`}>
         <div className="list-card-imagebox">
           <img src={item.image} alt={item.name} className="list__card-image"></img>
           {this.whichHouse()}
